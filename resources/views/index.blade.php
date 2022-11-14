@@ -32,10 +32,16 @@ body{
     position: absolute;
     bottom: -50px;
     transition: all linear 200ms;
-    font-size: 2em;
+    font-size: 1em;
     left: 50%;
     transform: translateX(-50%);
 }
+@media screen and (min-width: 1024px) {
+    .info-card > .text {
+        font-size: 1.3em;
+    }
+}
+
 .info-card > .img{
     position: absolute;
     height: 70%;
@@ -264,7 +270,7 @@ body{
                         <ul class="py-1 text-sm text-gray-700 lang-dropdown" aria-labelledby="">
                             <li style="width:100%; display:flex; justify-content: end; padding:10px 20px"><button data-dropdown-toggle="dropdown_lang" class="dropdown"><i class="fa-solid fa-circle-xmark"></i></button></li>
                             <li>
-                                <a href="/lang/Italiano" class="block py-2 px-4 hover:bg-gray-100">italian</a>
+                                <a href="/lang/it" class="block py-2 px-4 hover:bg-gray-100">italian</a>
                             </li>
                             <li>
                                 <a href="/lang/en" class="block py-2 px-4 hover:bg-gray-100">English</a>
@@ -273,11 +279,18 @@ body{
                     </div>
                 </div>
             </div>
-            <nav id="header-nav" class="flex items-center grow mx-4 relative w-1/2 py-1">
-                <ul class="flex items-center flex-row w-1/3 mx-auto justify-center">
+            <nav id="header-nav" class="flex items-center grow mx-4 relative py-1 w-full">
+                <ul class="flex items-center flex-row  mx-auto justify-center">
                     <li><a href="/store" ><img style="height:35px; margin: auto 10px" src="img/S.png" alt=""></a></li>
                     <li><a href="/refill" ><img style="height:35px; margin: auto 10px" src="img/alchemy.png" alt=""></a></li>
                 </ul>
+
+                <div style="position:absolute; right:0px; bottom:0px; margin:5px">
+                    <div class="flex items-center">
+                        <a href="/cart" class="uppercase tracking-widest font-sans font-thin text-sm">Shopping Bag</a>
+                        <button href="/cart" id="mini-cart-open"><img src="/img/bucket.png" alt="bucket/cart" width="50"></button>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
@@ -305,39 +318,8 @@ body{
                 <h1 class="text-lg">Ignác Fülöp Semmelweis</h1>
                 <hr class="w-3/4 mx-auto my-4">
                 <div class="text-lg text-left">
-                    <p style="margin:25px 0px">
-                        SEMMEL is an homage to the Hungarian pioneer and martyr Dr. Semmelweis, father of antisepsis and misunderstood genius.
-                    </p>
-                    <p style="margin:25px 0px">
-                        It is he who we must thank if today we fight to safeguard our health from germs, every time a doctor washes his hands or wears gloves, every time we take care of our hygiene and that of the places where we live in.
-                    </p>
-                    <p style="margin:25px 0px">
-                        Known as "the savior of mothers", Semmelweis was an obstetrician at the Vienna General Hospital in 1847 when he changed the path of medicine with his discovery.
-                    </p>
-                    <p style="margin:25px 0px">
-                        He noticed that the puerperal mortality of patients at the hospital exceeded 11%, and proceeded to investigate its cause over the strong objections of his chief, quote: "it made me so miserable that life seemed worthless".
-                    </p>
-                    <p style="margin:25px 0px">
-                        After months of research he realized that with a simple gesture such as washing his hands he could save many new mothers from death caused by puerperal sepsis, although at the time the existence of microorganisms was not yet known.
-                    </p>
-                    <p style="margin:25px 0px">
-                        Semmelweis's observations conflicted with the established scientific and medical opinions of the time, he instituted a policy where doctors were to wash their hands before touching patients with a calcium hypochlorite solution thus, obtaining a 90% drop in the mortality rate and to zero in the two months of the year following this discovery.
-                    </p>
-                    <p style="margin:25px 0px">
-                        Despite the obvious data, he was insulted and rejected by academia and colleagues for this indecent practice, they were offended at the suggestion that they should wash their hands, feeling that their social status as gentlemen was inconsistent with the idea that their hands could be impure - "it is ridiculous to wash one's hands for something that cannot be seen" - "death occurs by the will of God and not the fault of doctors".
-                    </p>
-                    <p style="margin:25px 0px">
-                        Semmelweis's revolutionary idea was contrary to all established medical understanding, as a result, his ideas were rejected by the medical community.
-                    </p>
-                    <p style="margin:25px 0px">
-                        Semmelweis was deprived of an academic position but did not give up.
-                    </p>
-                    <p style="margin:25px 0px">
-                        He returned home and continued his teachings, wrote to all doctors and all institutions for years until he fell into depression, lost his mental clarity and was locked up in an asylum in Vienna where he died on August 13, 1865, following the infections caused by the beating of the guards.
-                    </p>
-                    <p style="margin:25px 0px">
-                        Today the rejection of a new disruptive discovery is called the “Semmelweis reflex”.
-                    </p>
+                    {!! $text !!} 
+
                 </div>
                 <div class="mt-4 divider-md"></div>
             </div>
@@ -355,7 +337,7 @@ body{
                             <img src="img/bottles-02.png" alt="">
                         </div>
                         <div class="text">
-                            <h3 style="white-space: nowrap; font-size:max(.3em, 2vw)">Anodized Aluminum Case</h3>
+                            <h3 style="white-space: nowrap;">Anodized Aluminum Case</h3>
                         </div>
                     </div>
                     <div class="info-card m-3">
@@ -363,7 +345,7 @@ body{
                             <img src="img/bottles-03.png" alt="">
                         </div>
                         <div class="text">
-                            <h3 style="white-space: nowrap; font-size:max(.3em, 2vw)">PP Nozzel</h3>
+                            <h3 style="white-space: nowrap;">PP Nozzel</h3>
                         </div>
                     </div>
                     <div class="info-card m-3">
@@ -371,7 +353,7 @@ body{
                             <img src="img/bottles-04.png" alt="">
                         </div>
                         <div class="text">
-                            <h3 style="white-space: nowrap; font-size:max(.3em, 2vw)">Glass Inner Bottle</h3>
+                            <h3 style="white-space: nowrap;">Glass Inner Bottle</h3>
                         </div>
                     </div>
                 </div>
@@ -422,7 +404,8 @@ body{
             <img src="img/logo.png" width="150px" class="mx-auto my-3" alt="SEMMEL logo">
             <h3 class="">Join the SEMMEL Club</h3>
             <form action="/newsletter" method="POST">
-                <input type="email" id="email-input" class="border border-slate-700 my-3 px-2 py-1 mx-auto w-full xs:w-80" placeholder="Email...">
+                @csrf
+                <input type="email" id="email-input" name="email" class="border border-slate-700 my-3 px-2 py-1 mx-auto w-full xs:w-80" placeholder="Email...">
                 <br>
                 <input id="mail-privacy" type="checkbox" required>
                 <label for="mail-privacy">I agree to the privacy policy</label>
@@ -439,7 +422,7 @@ body{
         <a href="#" class="my-5">Terms & Conditions</a>
         <a href="#" class="my-5">Privacy Policy</a>
         <div class="flex my-6 text-2xl md:text-xl w-full md:w-auto justify-around">
-            <p class="m-1"><i class="fa-brands fa-cc-visa"></i> </img></p>
+            <p class="m-1"><i class="fa-brands fa-cc-visa"></i></p>
             <p class="m-1"><i class="fa-brands fa-cc-paypal"></i></p>
             <p class="m-1"><i class="fa-brands fa-cc-mastercard"></i></p>
             <p class="m-1"><i class="fa-brands fa-cc-apple-pay"></i></p>
@@ -450,7 +433,9 @@ body{
         </div>
         <p class="my-3">© SEMMEL 2022</p>
     </footer>
+    @include("mini-cart-partial")
     <script src="/js/jquery-3.6.1.min.js"></script>
+    @include("mini-cart-script")
     <script>
     if(true){
         if($(window).width() < 760){
@@ -532,7 +517,7 @@ body{
                 $("#popup-shadow").toggle();
             }, 5000);
         }
-        load_popup();
+        {{ $load_popup }}
         $("#close-newsletter-popup").on('click', function(){
             $("#newsletter-popup").toggle();
             $("#popup-shadow").toggle();

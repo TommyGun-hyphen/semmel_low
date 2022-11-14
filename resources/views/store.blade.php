@@ -27,7 +27,7 @@ main{
     background-color: black;
 }
 #header *{
-    filter: brightness(0) saturate(100%) invert(95%) sepia(4%) saturate(89%) hue-rotate(182deg) brightness(110%) contrast(85%);
+    /*filter: brightness(0) saturate(100%) invert(95%) sepia(4%) saturate(89%) hue-rotate(182deg) brightness(110%) contrast(85%);*/
 }
 .product-list{
     transition: all ease-in 300ms;
@@ -91,12 +91,14 @@ main{
 .product-card:hover .video{
     display:block;
 }
+
+
 </style>
     <header id="header" class="fixed bg-stone-100 w-full z-50">
         <div class="flex flex-col items-center justify-between">
             <div id="header-logo" class="grow flex w-full relative">
                 <a href="/" class="grow flex justify-center items-center">
-                    <img src="img/logo.png" alt="SEMMEL logo" class="w-48">
+                    <img src="img/logo.png" alt="SEMMEL logo" class="w-48" style="filter: brightness(0) saturate(100%) invert(95%) sepia(4%) saturate(89%) hue-rotate(182deg) brightness(110%) contrast(85%);">
                 </a>
                 <div id="lang-globe" class="absolute right-0 top-0">
                     <button id="dropdown" data-dropdown-toggle="dropdown_lang" class="font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button"><img src="img/globe.png" width="24" height="24" alt=""></button>
@@ -111,64 +113,86 @@ main{
                         </li>
                         </ul>
                     </div>
+
+                </div>
+                <div style="position:absolute; right:0px; bottom:0px; margin:5px">
+                    <div class="flex items-center">
+                        <a href="/cart" class="uppercase tracking-widest font-sans font-thin text-sm text-white">Shopping Bag</a>
+                        <button href="/cart" id="mini-cart-open"><img src="/img/bucket.png" alt="bucket/cart" width="50"></button>
+                    </div>
                 </div>
             </div>
             <nav id="header-nav" class="flex items-center grow mx-4 relative w-1/2 py-1">
                 <ul class="flex items-center flex-row w-1/3 mx-auto justify-center">
-                    <li><a href="/store" ><img style="height:35px; margin: auto 10px" src="img/S.png" alt=""></a></li>
-                    <li><a href="/refill" ><img style="height:35px; margin: auto 10px" src="img/alchemy.png" alt=""></a></li>
+                    <li><a href="/store" ><img style="height:35px; margin: auto 10px" src="/img/S.png" alt=""></a></li>
+                    <li><a href="/refill" ><img style="height:35px; margin: auto 10px" src="/img/alchemy.png" alt=""></a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <main>
-        <div style="height: 70px"></div>
         
         <main class="font-thin bg-black py-5 w-full">
             <div class="flex flex-col lg:flex-row items-center w-full product-list">
                 <div class="mx-2 text-center product-card cursor-pointer">
                     <div>
                     </div>
-                    <div class="img w-2/3 mx-auto my-3"><img src="img/silver-done.png" alt=""></div>
+                    <div class="img w-2/3 mx-auto my-3"><img src="/img/silver-done.png" alt=""></div>
                     <div class="video w-2/3 mx-auto my-3">
                         <video loop autoplay muted playsinline id="vid">
-                            <source type="video/mp4" src="video/silver.mp4"/>
+                            <source type="video/mp4" src="/video/silver.mp4"/>
                         <video>
                     </div>
                     <h2 class="text-xl">Silver Moon</h2>
-                    <h2 class="text-xl opacity-80">€123.99</h2>
-                    <button class="btn-buy px-4 py-2 hover:scale-105 transition-all">BUY NOW</button>
+                    <h2 class="text-xl opacity-80">€{{$prices["silver"]["unit_amount"]/100}}</h2>
+                    <form action="/cart" method="post">
+                        @csrf
+                        <input type="hidden" name="product" value="silver">
+                        <button class="btn-buy px-4 py-2 hover:scale-105 transition-all">BUY NOW</button>
+                    </form>
                 </div>
                 <div class="mx-2 text-center product-card cursor-pointer">
                     <div>
                     </div>
-                    <div class="img w-2/3 mx-auto my-3"><img src="img/gold-done.png" alt=""></div>
+                    <div class="img w-2/3 mx-auto my-3"><img src="/img/gold-done.png" alt=""></div>
                     <div class="video w-2/3 mx-auto my-3">
                         <video loop autoplay muted playsinline id="vid">
-                            <source type="video/mp4" src="video/pink.mp4"/>
+                            <source type="video/mp4" src="/video/pink.mp4"/>
                         <video>
                     </div>
                     <h2 class="text-xl">Gold Nebulae</h2>
-                    <h2 class="text-xl opacity-80">€123.99</h2>
-                    <button class="btn-buy px-4 py-2 hover:scale-105 transition-all">BUY NOW</button>
+                    <h2 class="text-xl opacity-80">€{{$prices["gold"]["unit_amount"]/100}}</h2>
+                    <form action="/cart" method="post">
+                        @csrf
+                        <input type="hidden" name="product" value="gold">
+                        <button class="btn-buy px-4 py-2 hover:scale-105 transition-all">BUY NOW</button>
+                    </form>
                 </div>
                 <div class="mx-2 text-center product-card cursor-pointer">
                     <div>
                     </div>
-                    <div class="img w-2/3 mx-auto my-3"><img src="img/black-done.png" alt=""></div>
+                    <div class="img w-2/3 mx-auto my-3"><img src="/img/black-done.png" alt=""></div>
                     <div class="video w-2/3 mx-auto my-3">
                         <video loop autoplay muted playsinline id="vid">
-                            <source type="video/mp4" src="video/black.mp4"/>
+                            <source type="video/mp4" src="/video/black.mp4"/>
                         <video>
                     </div>
                     <h2 class="text-xl">Black Aether</h2>
-                    <h2 class="text-xl opacity-80">€123.99</h2>
-                    <button class="btn-buy px-4 py-2 hover:scale-105 transition-all">BUY NOW</button>
+                    <h2 class="text-xl opacity-80">€{{$prices["black"]["unit_amount"]/100}}</h2>
+                    <form action="/cart" method="post">
+                        @csrf
+                        <input type="hidden" name="product" value="black">
+                        <button class="btn-buy px-4 py-2 hover:scale-105 transition-all">BUY NOW</button>
+                    </form>
                 </div>
             </div>
         </main>
-        
-    </main>
+        @include('mini-cart-partial')
+<section style="max-height:0px; transition: all linear 400ms; overflow-y: hidden;" class="contact-section bg-white pt-0">
+            <div>
+                <p class="text-xl my-4">If you have questions, comments or concerns regarding our products please don't hesitate to send us an e-mail to <a href="mailto:info@semmel.store" class="font-bold hover:text-slate-500">info@semmel.store</a></p>
+                <p class="text-xl mt-4 mb-16">For marketing or wholesale enquiries email us at <a href="mailto:mk.sales@semmel.store" class="font-bold hover:text-slate-500">mk.sales@semmel.store</a></p>
+            </div>
+        </section>
     <footer class="bg-black px-3 py-5 text-slate-200 font-thinest tracking-widest text-center flex flex-col md:flex-row justify-around items-center pt-10 font-sans">
         <div class="flex md:hidden justify-around w-full my-10">
             <a href="#">INSTAGRAM</a>
@@ -190,8 +214,20 @@ main{
         <p class="my-3">© SEMMEL 2022</p>
     </footer>
     <script src="/js/jquery-3.6.1.min.js"></script>
-
+    @include("mini-cart-script")
     <script>
+     $('.btn-contact-us').on('click', function(){
+            //$('.contact-section').css('max-height', height);
+            console.log("click")
+            let height = ($('.contact-section').find('div').eq(0).height() + 300) + "px"
+            if($('.contact-section').hasClass('active')){
+                $('.contact-section').removeClass('active');
+                $('.contact-section').css('max-height', '0px')
+            }else{
+                $('.contact-section').css('max-height', height)
+                $('.contact-section').addClass('active');
+            }
+        })
         $('.btn-preview').on('click', function(){
             let productCard = $(this).closest('.product-card')
             if(!$(this).data('on')){
