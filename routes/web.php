@@ -196,6 +196,12 @@ Route::get('/cart', function(){
 //delete from cart
 Route::delete('/cart/{item}', function($item){
   request()->session()->forget('cart.'.$item);
+
+  if(request()->expectsJson()){
+   return response()->json([
+    "status" => "deleted"
+   ]); 
+  }
   return redirect()->back();
 });
 //update quantity in cart
@@ -204,14 +210,14 @@ Route::put('/cart/{item}', function($item){
   if(!is_numeric($quantity)){
     return redirect()->back();
   }
-  if(!in_array($item, ['silver', 'gold', 'blacl'])){
+  if(!in_array($item, ['silver', 'gold', 'black'])){
     return redirect()->back();
   }
   request()->session()->put('cart.'.$item, $quantity);
 
   if(request()->expectsJson()){
     return response()->json([
-      "status" => "deleted"
+      "status" => "updated"
     ]);
   }else{
     return redirect()->back();

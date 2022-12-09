@@ -117,7 +117,7 @@ main{
                 </div>
                 <div style="position:absolute; right:0px; bottom:0px; margin:5px">
                     <div class="flex items-center">
-                        <a href="/cart" class="uppercase tracking-widest font-sans font-thin text-sm text-white">Shopping Bag</a>
+                        <a href="/cart" class="uppercase tracking-widest font-sans font-thin text-sm text-white hidden md:visible">Shopping Bag</a>
                         <button href="/cart" id="mini-cart-open"><img src="/img/bucket.png" alt="bucket/cart" width="50"></button>
                     </div>
                 </div>
@@ -147,7 +147,7 @@ main{
                     <form action="/cart" method="post">
                         @csrf
                         <input type="hidden" name="product" value="silver">
-                        <button class="btn-buy px-4 py-2 hover:scale-105 transition-all">BUY NOW</button>
+                        <button class="btn-buy px-4 py-2 hover:scale-105 transition-all" type="button" data-slug="silver">BUY NOW</button>
                     </form>
                 </div>
                 <div class="mx-2 text-center product-card cursor-pointer">
@@ -164,7 +164,7 @@ main{
                     <form action="/cart" method="post">
                         @csrf
                         <input type="hidden" name="product" value="gold">
-                        <button class="btn-buy px-4 py-2 hover:scale-105 transition-all">BUY NOW</button>
+                        <button class="btn-buy px-4 py-2 hover:scale-105 transition-all" type="button" data-slug="gold">BUY NOW</button>
                     </form>
                 </div>
                 <div class="mx-2 text-center product-card cursor-pointer">
@@ -181,7 +181,7 @@ main{
                     <form action="/cart" method="post">
                         @csrf
                         <input type="hidden" name="product" value="black">
-                        <button class="btn-buy px-4 py-2 hover:scale-105 transition-all">BUY NOW</button>
+                        <button class="btn-buy px-4 py-2 hover:scale-105 transition-all" type="button" data-slug="black">BUY NOW</button>
                     </form>
                 </div>
             </div>
@@ -216,6 +216,21 @@ main{
     <script src="/js/jquery-3.6.1.min.js"></script>
     @include("mini-cart-script")
     <script>
+
+    $('.btn-buy').on('click', function(){
+        $.ajax({
+            method: "post",
+            url: "/cart",
+            data: {
+                "_token": "{{ csrf_token() }}",
+                "product": $(this).data('slug')
+            },
+            success:()=>{
+                loadProducts();
+                showMiniCart();
+            }
+        });
+    });
      $('.btn-contact-us').on('click', function(){
             //$('.contact-section').css('max-height', height);
             console.log("click")

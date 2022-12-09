@@ -4,7 +4,7 @@
         <button class="float-right text-2xl" id="mini-cart-close"><i class="fa-thin fa-x"></i></button>
         <h3 class="text-lg my-3">Your shopping bag</h3>
         <hr class="border-slate-500">
-        <ul id="mini-cart-list">
+        <ul id="mini-cart-list" style="height: calc( 100% - 180px ); overflow-y:scroll">
             
             
         </ul>

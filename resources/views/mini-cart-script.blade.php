@@ -1,16 +1,50 @@
 <script>
-    $("#mini-cart-close").on('click', function(){
-        //$("#mini-cart").fadeOut();
+    function showMiniCart(){
+        $("#mini-cart").css('right', '0px');
+        $("#mini-cart-shadow").fadeIn();
+    }
+    function hideMiniCart(){
         $("#mini-cart").css('right', '-320px');
         $("#mini-cart-shadow").fadeOut();
+    }
+    $("#mini-cart-close").on('click', function(){
+        hideMiniCart();
     })
 
     $("#mini-cart-open").on('click', function(){
-        $("#mini-cart").css('right', '0px');
-        $("#mini-cart-shadow").fadeIn();
+        showMiniCart();
     })
+    function registerButtons(){
+        $(".btn-delete").on('click', function(){
+            $.ajax({
+                method: "DELETE",
+                url: "/cart/" + $(this).data('slug'),
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                },
+                success: ()=>{
+                    $(this).closest('li').remove();
+                },
+                error: ()=>{
 
+                }
+            })
+        });
 
+        $('.btn-update').on('click', function(){
+            $.ajax({
+                method: 'PUT',
+                url: '/cart/'+$(this).data('slug'),
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "quantity" : $(this).data('quantity')
+                },
+                success: ()=>{
+                    loadProducts();
+                }
+            });
+        });
+    }
     function loadProducts(){
         $.ajax({
             method: "get",
@@ -26,20 +60,11 @@
                             <h3>Є${data.cart[key].price}</h3>
                             <div class="flex justify-around my-4">
                                 @foreach ([1, 2, 3] as $nb)
-                                    <form class="inline" method="post" action="/cart/${key}">
-                                        @csrf
-                                        @method('PUT')
-                                        <input type="hidden" name="quantity" value="{{ $nb }}">
-                                        <button type="submit"
-                                            class="${(data.cart[key].quantity == {{$nb}} )? 'bg-black text-white' : 'bg-white text-black'} border border-black px-2 cursor-pointer mx-1">{{ $nb }}</button>
-                                    </form>
+                                        <button type="button" data-quantity="{{$nb}}" data-slug="${key}"
+                                            class="${(data.cart[key].quantity == {{$nb}} )? 'bg-black text-white' : 'bg-white text-black'} border border-black px-2 cursor-pointer mx-1 btn-update">{{ $nb }}</button>
                                 @endforeach
                             </div>
-                            <form action="/cart/${key}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="text-red-600 text-xs text-left mt-8">Remove from bag</button>
-                            </form>
+                            <button type="button" class="text-red-600 text-xs text-left mt-8 btn-delete" data-slug="${key}">Remove from bag</button>
                         </div>
                         <div>
                             <img src="${data.cart[key].img}" alt="${data.cart[key].name}">
@@ -48,6 +73,7 @@
                     `)
 
                 }
+                registerButtons();
             }
 
         })
