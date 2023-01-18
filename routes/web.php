@@ -183,14 +183,61 @@ Route::get('/cart', function(){
   foreach($cart as $item){
     $total += $item["price"] * $item["quantity"];
   }
-  if(request()->expectsJson()){
-    return response()->json([
-      "cart" => $cart,
-      "total" => $total
-    ]);
-  }else{
-    return view('cart', compact("cart", "total"));
+  return view('cart', compact("cart", "total"));
+});
+Route::get('/cart/json', function(){
+  $cart_session = request()->session()->get('cart');
+  // dd($cart_session);
+  $cart = [];
+  if(!is_array($cart_session)){
+    $cart_session = [];
   }
+  \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+  $gold = \Stripe\Product::retrieve("prod_MhdHhSzgTZZxIM");
+  $silver = \Stripe\Product::retrieve("prod_MhdJ44KkI7Pmzd");
+  $black = \Stripe\Product::retrieve("prod_MhdIidc7261Dve");
+  
+  
+  $gold_price = \Stripe\Price::retrieve($gold["default_price"])["unit_amount"]/100;
+  $silver_price = \Stripe\Price::retrieve($silver["default_price"])["unit_amount"]/100;
+  $black_price = \Stripe\Price::retrieve($black["default_price"])["unit_amount"]/100;
+
+  foreach($cart_session as $item => $quantity){
+    switch($item){
+      case "silver":
+        $cart[$item] = [
+          "name" => "Silver Moon",
+          "price" => $silver_price,
+          "img" => "/img/silver-transparent.png",
+          "quantity" => $quantity
+        ];
+        break;
+      case "gold":
+        $cart[$item] = [
+          "name" => "Gold Nebluae",
+          "price" => $gold_price,
+          "img" => "/img/gold-transparent.png",
+          "quantity" => $quantity
+        ];
+        break;
+      case "black":
+        $cart[$item] = [
+          "name" => "Black Aether",
+          "price" => $black_price,
+          "img" => "/img/black-transparent.png",
+          "quantity" => $quantity
+        ];
+        break;
+    }
+  }
+  $total = 0;
+  foreach($cart as $item){
+    $total += $item["price"] * $item["quantity"];
+  }
+  return response()->json([
+    "cart" => $cart,
+    "total" => $total
+  ]);
 });
 
 //delete from cart

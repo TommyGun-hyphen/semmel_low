@@ -48,10 +48,11 @@
     function loadProducts(){
         $.ajax({
             method: "get",
-            url: "/cart",
+            url: "/cart/json",
             dataType: 'json',
             success: (data)=>{
                 $("#mini-cart-list").html("");
+                $("#cart-total").text('€'+data.total);
                 for(key of Object.keys(data.cart)){
                     $("#mini-cart-list").append(`
                     <li class="flex border-b py-3 border-slate-500">

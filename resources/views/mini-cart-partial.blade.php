@@ -10,13 +10,12 @@
         </ul>
         <div class="absolute bottom-0 w-full uppercase">
             <hr>
-            <h3 class="my-4">payment: $300</h3>
+            <h3 class="my-4">payment: <span id="cart-total"></span></h3>
             <hr>
             <div class="flex mb-5 justify-between mt-4">
                 <a href="/cart" class="border border-black px-5">View bag</a>
                 {{-- <a href="/checkout" class="border border-black bg-black text-white px-5">Checkout</a> --}}
                 <button class="checkout_btn bg-black border border-black text-white px-5 font-light uppercase tracking-widest">Checkout</button>
-
             </div>
         </div>
     </div>

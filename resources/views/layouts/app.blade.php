@@ -73,6 +73,20 @@ body{
     </footer>
 
     <script>
+    $(".checkout_btn").on('click', function(){
+        const stripe = Stripe("pk_test_51L4mKZADSR4m4SBlHwS7wwq26MRsNzCFf1mz0NzO1eJwoXTkmchIdZ1t7YOMQh4GLZxzXDDMbx5PQVesZz7MEqRe00D4JhFF0V");
+        fetch('/checkout',{
+            method:"POST",
+            headers: {
+                "X-CSRF-TOKEN":"{{ csrf_token() }}"
+            },
+            body: JSON.stringify({})
+        }).then(res => res.json())
+        .then(payload => {
+            stripe.redirectToCheckout({sessionId: payload.id})
+        })
+
+    });
     $('#dropdown').on('click', function(){
         $("#dropdown_lang").toggle();
     })

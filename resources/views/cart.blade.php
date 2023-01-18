@@ -439,7 +439,7 @@
     <script src="https://js.stripe.com/v3/"></script>
     <script>
     //// STRIPE STUFF
-    $(".checkout_btn").on('click', function(){
+    {{-- $(".checkout_btn").on('click', function(){
         const stripe = Stripe("pk_test_51L4mKZADSR4m4SBlHwS7wwq26MRsNzCFf1mz0NzO1eJwoXTkmchIdZ1t7YOMQh4GLZxzXDDMbx5PQVesZz7MEqRe00D4JhFF0V");
         fetch('/checkout',{
             method:"POST",
@@ -452,7 +452,7 @@
             stripe.redirectToCheckout({sessionId: payload.id})
         })
 
-    });
+    }); --}}
 
 
     //// END STRIPE STUFF
