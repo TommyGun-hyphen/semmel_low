@@ -38,6 +38,7 @@
                 },
                 success: ()=>{
                     $(this).closest('li').remove();
+                    loadProducts();
                 },
                 error: ()=>{
 
