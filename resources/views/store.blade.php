@@ -214,6 +214,7 @@ main{
         <p class="my-3">© SEMMEL 2022</p>
     </footer>
     <script src="/js/jquery-3.6.1.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     @include("mini-cart-script")
     <script>
 

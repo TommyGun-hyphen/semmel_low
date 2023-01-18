@@ -71,7 +71,6 @@ body{
         </div>
         <p class="my-3">© SEMMEL 2022</p>
     </footer>
-    <script src="https://js.stripe.com/v3/"></script>
     <script>
     
     $('#dropdown').on('click', function(){
