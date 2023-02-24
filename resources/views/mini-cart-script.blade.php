@@ -15,7 +15,7 @@
         showMiniCart();
     })
     $(".checkout_btn").on('click', function(){
-        const stripe = Stripe("pk_test_51L4mKZADSR4m4SBlHwS7wwq26MRsNzCFf1mz0NzO1eJwoXTkmchIdZ1t7YOMQh4GLZxzXDDMbx5PQVesZz7MEqRe00D4JhFF0V");
+        const stripe = Stripe("{{env('STRIPE_PUBLIC_KEY')}}");
         fetch('/checkout',{
             method:"POST",
             headers: {

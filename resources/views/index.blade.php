@@ -263,7 +263,7 @@ body{
                 <a href="/" class="grow flex justify-center items-center">
                     <img src="img/logo.png" alt="SEMMEL logo" class="w-48">
                 </a>
-                <div id="lang-globe" class="absolute right-0 top-0">
+                {{-- <div id="lang-globe" class="absolute right-0 top-0">
                     <button id="dropdown" data-dropdown-toggle="dropdown_lang" class="dropdown font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button"><img src="img/Globe.png" width="24" height="24" alt=""></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown_lang" class="absolute right-0 hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow">
@@ -277,6 +277,12 @@ body{
                             </li>
                         </ul>
                     </div>
+                </div> --}}
+                <div style="position:absolute; right:0px; bottom:0px; margin:5px">
+                    <div class="flex items-center">
+                        <a href="/cart" class="uppercase tracking-widest font-sans font-thin text-sm hidden md:visible">Shopping Bag</a>
+                        <button href="/cart" id="mini-cart-open"><img src="/img/bucket.png" alt="bucket/cart" width="50"></button>
+                    </div>
                 </div>
             </div>
             <nav id="header-nav" class="flex items-center grow mx-4 relative py-1 w-full">
@@ -285,12 +291,7 @@ body{
                     <li><a href="/refill" ><img style="height:35px; margin: auto 10px" src="img/alchemy.png" alt=""></a></li>
                 </ul>
 
-                <div style="position:absolute; right:0px; bottom:0px; margin:5px">
-                    <div class="flex items-center">
-                        <a href="/cart" class="uppercase tracking-widest font-sans font-thin text-sm hidden md:visible">Shopping Bag</a>
-                        <button href="/cart" id="mini-cart-open"><img src="/img/bucket.png" alt="bucket/cart" width="50"></button>
-                    </div>
-                </div>
+                
             </nav>
         </div>
     </header>

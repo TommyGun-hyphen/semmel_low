@@ -100,7 +100,7 @@ main{
                 <a href="/" class="grow flex justify-center items-center">
                     <img src="img/logo.png" alt="SEMMEL logo" class="w-48" style="filter: brightness(0) saturate(100%) invert(95%) sepia(4%) saturate(89%) hue-rotate(182deg) brightness(110%) contrast(85%);">
                 </a>
-                <div id="lang-globe" class="absolute right-0 top-0">
+                {{-- <div id="lang-globe" class="absolute right-0 top-0">
                     <button id="dropdown" data-dropdown-toggle="dropdown_lang" class="font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button"><img src="img/globe.png" width="24" height="24" alt=""></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown_lang" class="absolute right-0 hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
@@ -114,7 +114,7 @@ main{
                         </ul>
                     </div>
 
-                </div>
+                </div> --}}
                 <div style="position:absolute; right:0px; bottom:0px; margin:5px">
                     <div class="flex items-center">
                         <a href="/cart" class="uppercase tracking-widest font-sans font-thin text-sm text-white hidden md:visible">Shopping Bag</a>

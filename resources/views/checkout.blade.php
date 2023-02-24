@@ -11,7 +11,7 @@
 
     <script src="https://js.stripe.com/v3/"></script>
     <script>
-        var stripe = new Stripe('pk_test_51L4mKZADSR4m4SBlHwS7wwq26MRsNzCFf1mz0NzO1eJwoXTkmchIdZ1t7YOMQh4GLZxzXDDMbx5PQVesZz7MEqRe00D4JhFF0V');
+        var stripe = new Stripe('env('STRIPE_PUBLIC_KEY')');
         stripe.redirectToCheckout({
             sessionId: '{{$session->id}}'
         });

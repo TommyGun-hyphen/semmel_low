@@ -50,63 +50,63 @@ Route::get('/', function(){
   <p style=\"margin:25px 0px\">
     Today the rejection of a new disruptive discovery is called the “Semmelweis reflex”.
   </p>";
-  $text_italian = "
-  <p style=\"margin:25px 0px\">
-    SEMMEL è un omage al pioniere e martire Ungherese Dr. Semmelweis, padre dell’antisepsi e genio incompreso. 
-  </p>
-  <p style=\"margin:25px 0px\">
-    È lui che dobbiamo ringraziare se oggi lottiamo per salvaguardare la nostra salute dai germi, ogni volta che un medico si lava le mani o che indossa dei guanti, ogni volta che curiamo la nostra igiene e quella dei luoghi dove viviamo.
-  </p>
-  <p style=\"margin:25px 0px\">
-    Conosciuto come “il salvatore delle madri”, Semmelweis era un medico ostetrico presso l’Ospedale generale di Vienna nel 1847 quando cambiò il percorso della medicina con la sua scoperta.</p>
-  <p style=\"margin:25px 0px\">
-    Notò che la mortalità puerperale delle pazienti presso l’ospedale superava l’11% e cercò in tutti i modi possibili la causa di questa infezione nonostante le forti obiezioni del suo superiore, questa una delle sue parole più celebri: \"Mi ha reso così infelice che la vita sembrava inutile\". 
-  </p>
-  <p style=\"margin:25px 0px\">
-    Intuì dopo mesi di ricerca, che con un semplice gesto come lavarsi le mani, poteva salvare molte neomamme dalla morte causata dalla sepsi puerperale, nonostante al tempo l’esistenza di microorganismi non fosse ancora conosciuta.
-  </p>
-  <p style=\"margin:25px 0px\">
-    Semmelweis affrontò le credenze della scienza e della medicina del suo tempo, impose ai medici di lavarsi le mani prima di toccare i pazienti con una soluzione di ipoclorito di calcio ottenendo cosi un calo del 90% del tasso di mortalità, e a zero nei due mesi dell'anno successivo a questa scoperta.
-  </p>
-  <p style=\"margin:25px 0px\">
-    Nonostante gli evidenti dati, venne insultato e rigettato dal mondo accademico e dai colleghi per questa pratica indecorosa, si offesero ritenendo che il loro status sociale di gentiluomini non fosse coerente con l'idea che le loro mani potessero essere impure,
-    “è ridicolo lavarsi le mani per qualcosa che non si vede” - “la morte avviene per volere di Dio e non per colpa dei medici”.
+  // $text_italian = "
+  // <p style=\"margin:25px 0px\">
+  //   SEMMEL è un omage al pioniere e martire Ungherese Dr. Semmelweis, padre dell’antisepsi e genio incompreso. 
+  // </p>
+  // <p style=\"margin:25px 0px\">
+  //   È lui che dobbiamo ringraziare se oggi lottiamo per salvaguardare la nostra salute dai germi, ogni volta che un medico si lava le mani o che indossa dei guanti, ogni volta che curiamo la nostra igiene e quella dei luoghi dove viviamo.
+  // </p>
+  // <p style=\"margin:25px 0px\">
+  //   Conosciuto come “il salvatore delle madri”, Semmelweis era un medico ostetrico presso l’Ospedale generale di Vienna nel 1847 quando cambiò il percorso della medicina con la sua scoperta.</p>
+  // <p style=\"margin:25px 0px\">
+  //   Notò che la mortalità puerperale delle pazienti presso l’ospedale superava l’11% e cercò in tutti i modi possibili la causa di questa infezione nonostante le forti obiezioni del suo superiore, questa una delle sue parole più celebri: \"Mi ha reso così infelice che la vita sembrava inutile\". 
+  // </p>
+  // <p style=\"margin:25px 0px\">
+  //   Intuì dopo mesi di ricerca, che con un semplice gesto come lavarsi le mani, poteva salvare molte neomamme dalla morte causata dalla sepsi puerperale, nonostante al tempo l’esistenza di microorganismi non fosse ancora conosciuta.
+  // </p>
+  // <p style=\"margin:25px 0px\">
+  //   Semmelweis affrontò le credenze della scienza e della medicina del suo tempo, impose ai medici di lavarsi le mani prima di toccare i pazienti con una soluzione di ipoclorito di calcio ottenendo cosi un calo del 90% del tasso di mortalità, e a zero nei due mesi dell'anno successivo a questa scoperta.
+  // </p>
+  // <p style=\"margin:25px 0px\">
+  //   Nonostante gli evidenti dati, venne insultato e rigettato dal mondo accademico e dai colleghi per questa pratica indecorosa, si offesero ritenendo che il loro status sociale di gentiluomini non fosse coerente con l'idea che le loro mani potessero essere impure,
+  //   “è ridicolo lavarsi le mani per qualcosa che non si vede” - “la morte avviene per volere di Dio e non per colpa dei medici”.
 
-  </p>
-  <p style=\"margin:25px 0px\">
-    L'idea rivoluzionaria di Semmelweis era contraria a tutta la comprensione medica consolidata, di conseguenza, le sue idee furono respinte dalla comunità medica.
-  </p>
-  <p style=\"margin:25px 0px\">
-    Semmelweis venne privato di una posizione accademica ma non si arrese.
-  </p>
-  <p style=\"margin:25px 0px\">
-    Tornò in patria e continuò gli insegnamenti, scrisse a tutti i medici e a tutte le istituzioni per anni fino a che cadde in depressione, perse la lucidità mentale e venne rinchiuso in un manicomio a Vienna dove morì il 13 agosto 1865, in seguito alle infezioni provocate dalle percosse delle guardie.                    </p>
-  <p style=\"margin:25px 0px\">
-    Oggi viene definito “riflesso di Semmelweis” il rigetto di una nuova scoperta dirompente. 
-  </p>
-  ";
-  $locale = session()->get('locale');
+  // </p>
+  // <p style=\"margin:25px 0px\">
+  //   L'idea rivoluzionaria di Semmelweis era contraria a tutta la comprensione medica consolidata, di conseguenza, le sue idee furono respinte dalla comunità medica.
+  // </p>
+  // <p style=\"margin:25px 0px\">
+  //   Semmelweis venne privato di una posizione accademica ma non si arrese.
+  // </p>
+  // <p style=\"margin:25px 0px\">
+  //   Tornò in patria e continuò gli insegnamenti, scrisse a tutti i medici e a tutte le istituzioni per anni fino a che cadde in depressione, perse la lucidità mentale e venne rinchiuso in un manicomio a Vienna dove morì il 13 agosto 1865, in seguito alle infezioni provocate dalle percosse delle guardie.                    </p>
+  // <p style=\"margin:25px 0px\">
+  //   Oggi viene definito “riflesso di Semmelweis” il rigetto di una nuova scoperta dirompente. 
+  // </p>
+  // ";
+  // $locale = session()->get('locale');
   $text = $text_english;
-  if($locale == "it"){
-    $text = $text_italian;
-  }
-  if($locale == null) $locale = "en";
+  // if($locale == "it"){
+  //   $text = $text_italian;
+  // }
+  // if($locale == null) $locale = "en";
 
   $load_popup = "";
   $block_popup = request()->cookie('block_popup');
   if($block_popup != "true"){
     $load_popup = "load_popup();";
-    return response(view('index', compact("locale", "text", "load_popup")))->cookie('block_popup','true',60*24*7);
+    return response(view('index', compact("text", "load_popup")))->cookie('block_popup','true',60*24*7);
   }else{
-    return view('index', compact("locale", "text", "load_popup"));
+    return view('index', compact("text", "load_popup"));
   }
 });
 Route::get('/store', function(){
   \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
   
-  $gold = \Stripe\Product::retrieve("prod_MhdHhSzgTZZxIM");
-  $silver = \Stripe\Product::retrieve("prod_MhdJ44KkI7Pmzd");
-  $black = \Stripe\Product::retrieve("prod_MhdIidc7261Dve");
+  $gold = \Stripe\Product::retrieve(env("GOLD_PROD_ID"));
+  $silver = \Stripe\Product::retrieve(env("SILVER_PROD_ID"));
+  $black = \Stripe\Product::retrieve(env("BLACK_PROD_ID"));
   
   
   $gold_price = \Stripe\Price::retrieve($gold["default_price"]);
@@ -142,9 +142,9 @@ Route::get('/cart', function(){
     $cart_session = [];
   }
   \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
-  $gold = \Stripe\Product::retrieve("prod_MhdHhSzgTZZxIM");
-  $silver = \Stripe\Product::retrieve("prod_MhdJ44KkI7Pmzd");
-  $black = \Stripe\Product::retrieve("prod_MhdIidc7261Dve");
+  $gold = \Stripe\Product::retrieve(env("GOLD_PROD_ID"));
+  $silver = \Stripe\Product::retrieve(env("SILVER_PROD_ID"));
+  $black = \Stripe\Product::retrieve(env("BLACK_PROD_ID"));
   
   
   $gold_price = \Stripe\Price::retrieve($gold["default_price"])["unit_amount"]/100;
@@ -193,9 +193,9 @@ Route::get('/cart/json', function(){
     $cart_session = [];
   }
   \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
-  $gold = \Stripe\Product::retrieve("prod_MhdHhSzgTZZxIM");
-  $silver = \Stripe\Product::retrieve("prod_MhdJ44KkI7Pmzd");
-  $black = \Stripe\Product::retrieve("prod_MhdIidc7261Dve");
+  $gold = \Stripe\Product::retrieve(env("GOLD_PROD_ID"));
+  $silver = \Stripe\Product::retrieve(env("SILVER_PROD_ID"));
+  $black = \Stripe\Product::retrieve(env("BLACK_PROD_ID"));
   
   
   $gold_price = \Stripe\Price::retrieve($gold["default_price"])["unit_amount"]/100;
@@ -309,9 +309,9 @@ Route::post('/checkout', function(){
   $cart = request()->session()->get('cart');
   $line_items = [];
 
-  $gold = \Stripe\Product::retrieve("prod_MhdHhSzgTZZxIM");
-  $silver = \Stripe\Product::retrieve("prod_MhdJ44KkI7Pmzd");
-  $black = \Stripe\Product::retrieve("prod_MhdIidc7261Dve");
+  $gold = \Stripe\Product::retrieve(env("GOLD_PROD_ID"));
+  $silver = \Stripe\Product::retrieve(env("SILVER_PROD_ID"));
+  $black = \Stripe\Product::retrieve(env("BLACK_PROD_ID"));
   
   if(array_key_exists("silver", $cart)){
     $line_items[] = [

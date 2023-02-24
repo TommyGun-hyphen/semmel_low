@@ -26,7 +26,7 @@ body{
                 <a href="/" class="grow flex justify-center items-center">
                     <img src="/img/logo.png" alt="SEMMEL logo" class="w-48">
                 </a>
-                <div id="lang-globe" class="absolute right-0 top-0">
+                {{-- <div id="lang-globe" class="absolute right-0 top-0">
                     <button id="dropdown" data-dropdown-toggle="dropdown_lang" class="font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button"><img src="/img/globe.png" width="24" height="24" alt=""></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown_lang" class="absolute right-0 hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
@@ -39,7 +39,7 @@ body{
                         </li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <nav id="header-nav" class="flex items-center grow mx-4 relative w-1/2 py-1">
                 <ul class="flex items-center flex-row w-1/3 mx-auto justify-between">
