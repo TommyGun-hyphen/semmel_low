@@ -372,7 +372,7 @@ body{
                             + Benefits
                         </div>
                         <div class="content">
-                            <p>100% Recyclable</p>
+                            {{-- <p>100% Recyclable</p> --}}
                         </div>
                     </li>
                 </ul>
