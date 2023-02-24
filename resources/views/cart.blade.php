@@ -322,7 +322,7 @@
                 <div style="position:absolute; right:0px; bottom:0px; margin:5px">
                     <div class="flex items-center">
                         <a href="/cart" class="uppercase tracking-widest font-sans font-thin text-sm hidden md:visible">Shopping Bag</a>
-                        <button href="/cart" id="mini-cart-open"><img src="/img/bucket.png" alt="bucket/cart" width="50"></button>
+                        <button href="/cart" id="mini-cart-open"><img src="/img/bucket.png" alt="bucket/cart" width="40"></button>
                     </div>
                 </div>
             </div>
