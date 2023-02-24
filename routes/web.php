@@ -362,8 +362,8 @@ Route::post('/checkout', function(){
 
   //create payment intent or wtv
   $session = \Stripe\Checkout\Session::create([
-    "success_url" => "http://good.com",
-    "cancel_url" => "http://bad.com",
+    "success_url" => "https://semmel.store",
+    "cancel_url" => "https://semmel.store/store",
     "payment_method_types" => ['card'],
     "mode" => "payment",
     "line_items" => $line_items,
